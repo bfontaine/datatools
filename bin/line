@@ -1,0 +1,27 @@
+#! /bin/bash
+#
+# line
+# ----
+#
+# Get a line from a file, starting at 1.
+#
+# Usage:
+#
+#   line <number> [<file>]
+#
+# Examples:
+#
+#   $ line 42 myfile.txt
+#   $ zcat myfile.txt.gz | line 42
+#
+# Known issues:
+#
+# - if the file is less than <number> lines, the last one will be displayed.
+
+__dt_line() {
+  local n=$1
+  shift
+  head -$n $* | tail -1
+}
+
+__dt_line $*
