@@ -1,0 +1,24 @@
+#! /bin/bash
+#
+# jsons_pp
+# --------
+#
+# Pretty-print a file containing one JSON document per line, using `json_pp`.
+#
+# Usage:
+#
+#   cat <file> | jsons_pp
+#
+# Examples:
+#
+#   $ cat people.jsons | jsons_pp
+#   $ jsons_pp < myfile.jsons
+#
+
+__jsons_pp() {
+    while read -r line || [[ -n $line ]]; do
+        json_pp <<< "$line"
+    done < $1
+}
+
+__jsons_pp $*
