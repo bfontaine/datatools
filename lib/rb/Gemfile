@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+gem "octokit"
+gem "geokit"
+gem "gender_detector"
+gem "silent", "~> 0.2.0"
